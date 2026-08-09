@@ -145,7 +145,7 @@ function layout({ title, body, nav }) {
 }
 
 function buildNav(activeSlug) {
-  return listDocs()
+  const docLinks = listDocs()
     .map((f) => {
       const slug = slugFromFile(f);
       const title = titleFromFile(f);
@@ -153,7 +153,13 @@ function buildNav(activeSlug) {
       return `<a class="${cls}" href="/${slug === "00-Index-ECU-Repair-Academy-Study-Notes" ? "" : slug}">${title}</a>`;
     })
     .join("\n");
+  const courseLink = `<a href="/course" style="border-top:1px solid var(--border); margin-top:10px; padding-top:14px; color:var(--accent); font-weight:600;">Open Interactive Course →</a>`;
+  return docLinks + "\n" + courseLink;
 }
+
+app.get("/course", (req, res) => {
+  res.sendFile(path.join(__dirname, "site", "course", "course.html"));
+});
 
 app.get("/", (req, res) => {
   const indexFile = "00-Index-ECU-Repair-Academy-Study-Notes.md";
