@@ -1,0 +1,16 @@
+{
+  "name": "ecu-repair-academy-notes",
+  "version": "1.0.0",
+  "description": "ECU Repair Academy Study Notes - Jatelo Technologies",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "marked": "^12.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
